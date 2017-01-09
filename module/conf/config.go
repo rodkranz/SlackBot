@@ -12,7 +12,7 @@ var (
 	SecretWord = "LetMeInBananaGames"
 
 	// SlackAPI incoming webHooks
-	SlackAPI = "https://hooks.slack.com/services/?????????????"
+	SlackAPI = "https://hooks.slack.com/services/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"
 
 	// DateFormat data of bot.
 	DateFormat = "01/02/2006 15:04"

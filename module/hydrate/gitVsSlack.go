@@ -10,7 +10,7 @@ import (
 func NewSlackFromGitHub(gp *github.Payload) *slack.Payload {
 	sp          := &slack.Payload{}
 	sp.Username = "GoBot"
-	sp.Channel  = "#general"
+	sp.Channel  = "#gobot"
 	sp.Emotion  = "ghost"
 
 	a            := &slack.Attachment{}
