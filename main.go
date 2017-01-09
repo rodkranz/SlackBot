@@ -12,10 +12,10 @@ import (
 
 	"gopkg.in/macaron.v1"
 
-	"github.com/rodkranz/slack-bot/module/github"
 	"github.com/rodkranz/slack-bot/module/hydrate"
 	"github.com/rodkranz/slack-bot/module/slack"
 	"github.com/rodkranz/slack-bot/module/conf"
+	"github.com/rodkranz/slack-bot/module/gitlab"
 )
 
 func main() {
@@ -32,20 +32,20 @@ func main() {
 	os.Exit(0)
 }
 
-func webHook(ctx *macaron.Context) string {
+func gitLabWebhook(ctx *macaron.Context) string {
 	b, err := ctx.Req.Body().Bytes()
 	if err != nil {
 		fmt.Printf("Error: %v", err.Error())
 		ctx.Error(http.StatusBadRequest, err.Error())
 	}
 
-	gitHubWebHook, err := github.NewPayload(b)
+	gitLabWebHook, err := gitlab.NewPayload(b)
 	if err != nil {
 		fmt.Printf("Error: %v", err.Error())
 		ctx.Error(http.StatusBadRequest, err.Error())
 	}
 
-	slackPayload := hydrate.NewSlackFromGitHub(gitHubWebHook)
+	slackPayload := hydrate.NewSlackFromGitLab(gitLabWebHook)
 	res, err := slack.Send(slackPayload)
 	if err != nil {
 		fmt.Printf("Error: %v", err.Error())
@@ -60,4 +60,14 @@ func webHook(ctx *macaron.Context) string {
 	defer res.Body.Close()
 
 	return string(b)
+}
+
+func webHook(ctx *macaron.Context) string {
+	ctx.Header()
+	if value := ctx.Header().Get("X-Gitlab-Event"); len(value) > 0 {
+		return  gitLabWebhook(ctx)
+	}
+
+	return "plataform not implemented!"
+
 }

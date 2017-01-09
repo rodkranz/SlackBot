@@ -54,7 +54,7 @@ type Repository struct {
 type Commit struct {
 	ID        string        `json:"id"`
 	Message   string        `json:"message"`
-	Timestamp time.Timer    `json:"timestamp"`
+	Timestamp time.Time    `json:"timestamp"`
 	URL       string        `json:"url"`
 	Author    Author        `json:"author"`
 	Added     []string      `json:"added"`
