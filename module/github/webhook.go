@@ -3,7 +3,7 @@ package github
 
 import "time"
 
-// Payload struct of webhook
+// Payload struct of slack-bot
 type Payload struct {
 	Ref        string     `json:"ref"`
 	Compare    string     `json:"compare"`

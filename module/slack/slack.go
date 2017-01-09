@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"net/http"
 
-	"github.com/rodkranz/webhook/module/conf"
+	"github.com/rodkranz/slack-bot/module/conf"
 )
 
 // Send payload to slack for publish

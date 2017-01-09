@@ -3,7 +3,7 @@ package github
 
 import "encoding/json"
 
-// NewPayload returns a new struct of github webhook.
+// NewPayload returns a new struct of github slack-bot.
 func NewPayload(b []byte) (*Payload, error) {
 	p := &Payload{}
 

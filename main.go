@@ -12,10 +12,10 @@ import (
 
 	"gopkg.in/macaron.v1"
 
-	"github.com/rodkranz/webhook/module/github"
-	"github.com/rodkranz/webhook/module/hydrate"
-	"github.com/rodkranz/webhook/module/slack"
-	"github.com/rodkranz/webhook/module/conf"
+	"github.com/rodkranz/slack-bot/module/github"
+	"github.com/rodkranz/slack-bot/module/hydrate"
+	"github.com/rodkranz/slack-bot/module/slack"
+	"github.com/rodkranz/slack-bot/module/conf"
 )
 
 func main() {

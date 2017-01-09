@@ -3,7 +3,7 @@ package github
 
 import "fmt"
 
-// ErrGitHubUnmarshal error if can't possible unmarshal gitHub input webhook
+// ErrGitHubUnmarshal error if can't possible unmarshal gitHub input slack-bot
 type ErrGitHubUnmarshal struct {
 	Err error
 }

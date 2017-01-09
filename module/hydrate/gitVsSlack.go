@@ -2,8 +2,8 @@
 package hydrate
 
 import (
-	"github.com/rodkranz/webhook/module/slack"
-	"github.com/rodkranz/webhook/module/github"
+	"github.com/rodkranz/slack-bot/module/slack"
+	"github.com/rodkranz/slack-bot/module/github"
 )
 
 // NewSlackFromGitHub returns slack.Payload with information about github.
